@@ -6,7 +6,8 @@ from bs4 import BeautifulSoup
 
 def index_view(request):
     # guitar site of choice: http://www.guitartabs.cc/
-    song_name = request.GET.get('song')
+    song = request.GET.get('song')
+    song_name = song.lower().replace(' ', '-')
     search_url = "http://www.guitartabs.cc/search.php?tabtype=any&band=&song={}".format(song_name)
     results = requests.get(search_url).text
     search_soup = BeautifulSoup(results, 'html.parser')
