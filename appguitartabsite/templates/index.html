@@ -7,4 +7,8 @@
     <input type="text" name='song' placeholder='Song Name'>
     <input type='submit' value='Search'>
   </form>
+  <hr>
+  {% for song in songlinks %}
+  <a href="{{song}}"<p>{{song}}</p>
+  {% endfor %}
 {% endblock %}

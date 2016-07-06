@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from appguitartabsite.views import index_view
+from appguitartabsite.views import index_view, tabs_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index_view, name='indexview')
+    url(r'^$', index_view, name='indexview'),
+    url(r'^(?P<url>.+)', tabs_view, name='tabsview')
 ]
